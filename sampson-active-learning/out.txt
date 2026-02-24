@@ -1,0 +1,66 @@
+.
+├── configs
+│   └── default.yaml
+├── output
+│   ├── checkpoints
+│   │   └── dim512_nhead64_numlayers7_learnedPETrue_lr0.008_weightdecay0.07_batchsize512_epochs1000_idx0_MLPTrue
+│   │       ├── 100.pth
+│   │       ├── 125.pth
+│   │       ├── 150.pth
+│   │       ├── 175.pth
+│   │       ├── 200.pth
+│   │       ├── 225.pth
+│   │       ├── 250.pth
+│   │       ├── 25.pth
+│   │       ├── 275.pth
+│   │       ├── 300.pth
+│   │       ├── 325.pth
+│   │       ├── 350.pth
+│   │       ├── 375.pth
+│   │       ├── 400.pth
+│   │       ├── 425.pth
+│   │       ├── 450.pth
+│   │       ├── 475.pth
+│   │       ├── 500.pth
+│   │       ├── 50.pth
+│   │       ├── 525.pth
+│   │       ├── 550.pth
+│   │       ├── 575.pth
+│   │       ├── 600.pth
+│   │       ├── 625.pth
+│   │       ├── 650.pth
+│   │       ├── 675.pth
+│   │       ├── 700.pth
+│   │       ├── 725.pth
+│   │       ├── 750.pth
+│   │       ├── 75.pth
+│   │       ├── 775.pth
+│   │       ├── 800.pth
+│   │       ├── 825.pth
+│   │       ├── 850.pth
+│   │       ├── 875.pth
+│   │       ├── 900.pth
+│   │       ├── 925.pth
+│   │       ├── 950.pth
+│   │       ├── 975.pth
+│   │       └── final.pth
+│   ├── emulator_jobs
+│   ├── eval
+│   ├── logs
+│   ├── preprocessed
+│   │   ├── normalization_stats.pt
+│   │   ├── preprocessed_spectra.pt
+│   │   └── supp_preprocessed_spectra.pt
+│   └── supplemental_grid
+├── out.txt
+├── pyproject.toml
+└── src
+    └── sampson_active_learning
+        ├── active_learning.py
+        ├── config.py
+        ├── __init__.py
+        ├── run.py
+        ├── slurm.py
+        └── utils.py
+
+11 directories, 52 files

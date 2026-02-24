@@ -1,0 +1,58 @@
+# configs/default.yaml
+data:
+  # preprocessed data + normalization
+  normalization_stats_file: "output/preprocessed/normalization_stats.pt"
+  preprocessed_spectra_file: "output/preprocessed/preprocessed_spectra.pt"
+  supp_preprocessed_spectra_file: "output/preprocessed/supp_preprocessed_spectra.pt"
+
+  # where evaluation writes lc_properties.txt 
+  lc_properties_file: "output/eval/{model}/{epochs}/lc_properties.txt"
+
+  # where to find original Sedona samples (still on scratch)
+  sample_file_template: "/n/home07/kyadavalli/scratch/aCOperation/models_4d_0.2dt/{sid}/sample.txt"
+  # where to put new Sedona runs (inside repo)
+  supplemental_grid_root: "output/supplemental_grid"
+  # batch script to recompute normalization / spectra (usually at project root)
+  recalc_batch_script: "run1_batch.sub"
+
+
+model:
+  ckpt_dir: "output/checkpoints"
+  name: "dim512_nhead64_numlayers7_learnedPETrue_lr0.008_weightdecay0.07_batchsize512_epochs1000_idx0_MLPTrue"
+  epochs: 200
+
+
+
+active_learning:
+  N: 3
+  M: 10
+  step_sigma: 0.1
+  to_run: 0
+  random_seed: 42
+
+flags:
+  eval_model: true
+
+training:
+  #these all go into the header for the sbatch file where I retrain the new emulator. 
+  # directory where emulator training sbatch scripts live
+  emulator_job_dir: "output/emulator_jobs"
+  # logs from training jobs will live here
+  logs_dir: "output/logs"
+  # evaluation plots will live here
+  eval_plots_dir: "output/eval"
+  train_small_file: "/n/home07/kyadavalli/scratch/NeuralNetworks/NN_grid/active_learning/train_small.py"
+  sbatch_cpus_per_task: 2
+  sbatch_nodes: 1
+  sbatch_time: "00-00:15:00"
+  sbatch_partition: "itc_gpu,gpu,gpu_h200,gpu_requeue,itc_gpu_requeue"
+  sbatch_gres: "gpu:3"
+  sbatch_constraint: "a100|h100|h200"
+  sbatch_mem: "4G"
+  sbatch_modules:
+    - "gcc/12.2.0-fasrc01"
+    - "mpich/4.1-fasrc01"
+    - "gsl/2.7-fasrc01"
+    - "hdf5/1.14.0-fasrc01"
+    - "python/3.10.9-fasrc01"
+  conda_env: "sedona_venv"

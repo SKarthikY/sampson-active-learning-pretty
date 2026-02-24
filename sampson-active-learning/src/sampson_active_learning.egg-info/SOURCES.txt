@@ -1,0 +1,12 @@
+pyproject.toml
+src/sampson_active_learning/__init__.py
+src/sampson_active_learning/active_learning.py
+src/sampson_active_learning/config.py
+src/sampson_active_learning/run.py
+src/sampson_active_learning/simple_MLP.py
+src/sampson_active_learning/slurm.py
+src/sampson_active_learning/utils.py
+src/sampson_active_learning.egg-info/PKG-INFO
+src/sampson_active_learning.egg-info/SOURCES.txt
+src/sampson_active_learning.egg-info/dependency_links.txt
+src/sampson_active_learning.egg-info/top_level.txt
