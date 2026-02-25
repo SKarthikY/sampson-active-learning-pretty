@@ -35,22 +35,31 @@ A typical use case is:
 
 Formally, we consider Sedona as an expensive black‑box function
 
-\[
-f : \Theta \rightarrow \mathcal{Y},
-\]
+f: Θ → Y
 
-where \(\Theta\) is the parameter space (e.g., explosion energy, ejecta mass, composition, viewing angle) and \(\mathcal{Y}\) is the space of Sedona outputs (e.g., discretized time‑series fluxes).
+where 
+- `Θ` is the parameter space (e.g., nickel mass, ejecta mass, velocity).
+- `Y` is the space of Sedona outputs (e.g., discretized time-series fluxes).
 
-Sampson is a parametric model \(\hat{f}_\phi : \Theta \rightarrow \mathcal{Y}\) trained to approximate \(f\). Given a fixed budget \(B\) of Sedona evaluations, we want to choose a sequence of query points
-\[
-\theta_1, \dots, \theta_B \in \Theta
-\]
-such that the resulting dataset \(\{(\theta_i, f(\theta_i))\}_{i=1}^B\) yields an emulator with minimal prediction error over a target distribution on \(\Theta\).
+
+Sampson is a parametric model 
+
+f_hat_φ: Θ → Y
+
+trained to approximate `f`. Given a fixed budget `B` of Sedona evaluations, we want to choose a sequence of query points
+
+θ₁, …, θ_B ∈ Θ
+
+such that the resulting dataset 
+
+{(θ_i, f(θ_i))}_{i=1}^B
+
+yields an emulator with minimal prediction error over a target distribution on `Θ`.
 
 This framework supports query strategies of the form:
 
-- **Uncertainty‑based**: prioritize regions where \(\hat{f}_\phi\) has high predictive uncertainty.
+- **Uncertainty‑based**: prioritize regions where `f_hat_φ` has high predictive uncertainty.
 - **Error‑based / disagreement‑based**: use ensembles or multiple surrogates to identify regions of high model disagreement.
-- **Coverage / diversity‑based**: ensure good coverage of \(\Theta\) to reduce extrapolation.
+- **Coverage / diversity‑based**: ensure good coverage of `Θ` to reduce extrapolation.
 
 The concrete strategies implemented in this repository are documented in `docs/active_learning.md` (e.g., acquisition functions, batch selection, and implementation details).
