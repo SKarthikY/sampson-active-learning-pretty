@@ -34,11 +34,11 @@ A typical use case is:
 ## Active learning formulation (high level)
 
 Formally, we consider Sedona as an expensive black‑box function
-$
+
 \[
 f : \Theta \rightarrow \mathcal{Y},
 \]
-$
+
 where \(\Theta\) is the parameter space (e.g., explosion energy, ejecta mass, composition, viewing angle) and \(\mathcal{Y}\) is the space of Sedona outputs (e.g., discretized time‑series fluxes).
 
 Sampson is a parametric model \(\hat{f}_\phi : \Theta \rightarrow \mathcal{Y}\) trained to approximate \(f\). Given a fixed budget \(B\) of Sedona evaluations, we want to choose a sequence of query points
